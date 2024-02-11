@@ -2,8 +2,14 @@ import mongoose from "mongoose";
 
 const Store = mongoose.Schema(
   {
-    name: String,
-    userId: String,
+    name: {
+      type: String,
+      require: "name is required",
+    },
+    userId: {
+      type: String,
+      require: "user is required",
+    },
   },
   {
     timestamps: true,
