@@ -1,8 +1,10 @@
+// import prismadb from '@/lib/prismadb';
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs';
 
 import Navbar from '@/components/navbar'
-import prismadb from '@/lib/prismadb';
+import connectDB from '@/lib/mongoose';
+import Store from '@/mongoose/Store';
 
 export default async function DashboardLayout({
   children,
@@ -11,22 +13,29 @@ export default async function DashboardLayout({
   children: React.ReactNode
   params: { storeId: string }
 }) {
-  const { userId } = auth();
 
+  const { userId } = auth();
   if (!userId) {
     redirect('/sign-in');
   }
 
-  const store = await prismadb.store.findFirst({ 
-    where: {
-      id: params.storeId,
-      userId,
-    }
-   });
+  // prisma query
+    // const store = await prismadb.store.findFirst({ 
+    //   where: {
+    //     id: params.storeId,
+    //     userId,
+    //   }
+    //  });
 
-  if (!store) {
-    redirect('/');
-  };
+  // Mongoose query 
+  await connectDB()
+  await Store.findById(params.storeId)
+    .then(async (store: Object) => {
+      if (!store)
+      redirect('/');
+    })
+    .catch(() => {
+    });
 
   return (
     <>
