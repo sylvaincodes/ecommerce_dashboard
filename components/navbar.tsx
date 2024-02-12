@@ -7,6 +7,7 @@ import { MainNav } from "@/components/main-nav";
 // import prismadb from "@/lib/prismadb";
 import Store from "@/mongoose/Store";
 import connectDB from "@/lib/mongoose";
+import prismadb from "@/lib/prismadb";
 
 const Navbar = async () => {
   const { userId } = auth();
@@ -15,15 +16,11 @@ const Navbar = async () => {
     redirect('/sign-in');
   }
   //  Prisma query
-    // const stores = await prismadb.store.findMany({
-    //   where: {
-    //     userId,
-    //   }
-    // });
-
-  // Mongoose query
-  await connectDB;
-  const stores = await Store.find({ userId : userId })
+    const stores = await prismadb.store.findMany({
+      where: {
+        userId,
+      }
+    });
 
   return ( 
     <div className="border-b">

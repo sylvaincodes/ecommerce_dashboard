@@ -3,8 +3,8 @@ import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs';
 
 import Navbar from '@/components/navbar'
-import connectDB from '@/lib/mongoose';
-import Store from '@/mongoose/Store';
+import prismadb from '@/lib/prismadb';
+
 
 export default async function DashboardLayout({
   children,
@@ -20,23 +20,15 @@ export default async function DashboardLayout({
   }
 
   // prisma query
-    // const store = await prismadb.store.findFirst({ 
-    //   where: {
-    //     id: params.storeId,
-    //     userId,
-    //   }
-    //  });
+    const store = await prismadb.store.findFirst({ 
+      where: {
+        id: params.storeId,
+        userId,
+      }
+     });
+     if (!store) redirect('/');
 
-  // Mongoose query 
-  await connectDB()
-  await Store.findById(params.storeId)
-    .then(async (store: Object) => {
-      if (!store)
-      redirect('/');
-    })
-    .catch(() => {
-    });
-
+     
   return (
     <>
       <Navbar />
