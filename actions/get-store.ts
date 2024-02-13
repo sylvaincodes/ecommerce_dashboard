@@ -1,9 +1,6 @@
 import prismadb from "@/lib/prismadb";
-import { auth } from "@clerk/nextjs";
 
-
-export const getStoreCount = async () => {
-    const { userId } = auth();
+export const getStoreCount = async (userId: string) => {
   const stockCount = await prismadb.store.count({
     where: {
       userId
