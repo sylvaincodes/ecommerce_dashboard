@@ -2,7 +2,6 @@ import { getStoreCount } from "@/actions/get-store";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
-import { formatter } from "@/lib/utils";
 import React from "react";
 
 const page = async () => {
