@@ -7,9 +7,9 @@ import React from "react";
 
 const page = async () => {
 
-  const {userId} = auth();
+  // const { userId } = auth();
 
-  const getStore = await getStoreCount(userId);
+  // const getStore = await getStoreCount(userId);
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
@@ -21,7 +21,7 @@ const page = async () => {
               <CardTitle className="text-sm font-medium">Stores</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{getStore}</div>
+              <div className="text-2xl font-bold">0</div>
             </CardContent>
           </Card>
         </div>
