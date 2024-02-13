@@ -2,10 +2,14 @@ import { getStoreCount } from "@/actions/get-store";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
+import { auth } from "@clerk/nextjs";
 import React from "react";
 
 const page = async () => {
-  const getStore = await getStoreCount();
+
+  const {userId} = auth();
+
+  const getStore = await getStoreCount(userId);
   return (
     <div className="flex-col">
       <div className="flex-1 space-y-4 p-8 pt-6">
