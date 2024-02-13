@@ -5,11 +5,8 @@ import { auth } from "@clerk/nextjs";
 import Navbar from "./components/navbar";
 import prismadb from "@/lib/prismadb";
 
-interface HomeProps {
-  children: any;
-}
 
-const DashboardLayout = async ({ children }: HomeProps) => {
+export const DashboardLayout = async  ({ children }) => {
   const { userId } = auth();
   if (!userId) {
     redirect("/sign-in");
