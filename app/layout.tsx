@@ -9,7 +9,7 @@ import { josephan } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Ecommerce Dashboard",
-  description: "A admin plateforme",
+  description: "api store : Running multiple stores from a single dashboard. ",
 };
 
 export default function RootLayout({
