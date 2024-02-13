@@ -8,7 +8,7 @@ import { ToastProvider } from "@/providers/toast-provider";
 import { josephan } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "Ecommerce Dashboard",
+  title: "api-store - Multi vendor",
   description: "api store : Running multiple stores from a single dashboard. ",
 };
 
