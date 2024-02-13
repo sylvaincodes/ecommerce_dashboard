@@ -32,6 +32,7 @@
     "mongoose": "^8.1.1",
     "next": "14.1.0",
     "next-cloudinary": "^5.20.0",
+    "prisma": "^5.9.1",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.50.1",
@@ -52,7 +53,6 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
-    "prisma": "^5.9.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
