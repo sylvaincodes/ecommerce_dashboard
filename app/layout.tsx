@@ -5,8 +5,7 @@ import { ModalProvider } from "@/providers/modal-provider";
 import "./globals.css";
 import prismadb from "@/lib/prismadb";
 import { ToastProvider } from "@/providers/toast-provider";
-
-const inter = Inter({ subsets: ["latin"] });
+import { josephan } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Ecommerce Dashboard",
@@ -21,10 +20,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
-          <ModalProvider/>
-          <ToastProvider/>
-          {children}</body>
+        <body className={josephan.className}>
+          <ModalProvider />
+          <ToastProvider />
+          {children}
+        </body>
       </html>
     </ClerkProvider>
   );
