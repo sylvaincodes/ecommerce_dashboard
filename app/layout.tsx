@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "A platform with built-in NextJs, which helps programmers create eCommerce websites.",
   applicationName: "API-STORE",
-  authors: ["sylvaincodes"],
+  authors: [{ name: "sylvaincodes", url: "https://github.com/sylvaincodes" }],
   openGraph: {
     type: "website",
     url: "https://apistore-m6uz4upqg-sylvaincodes-projects.vercel.app/home",
