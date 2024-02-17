@@ -32,7 +32,7 @@ const formSchema = z.object({
 type SizeFormValues = z.infer<typeof formSchema>
 
 interface SizeFormProps {
-  initialData: Size | null;
+  initialData?: Size | null;
 };
 
 export const SizeForm: React.FC<SizeFormProps> = ({
