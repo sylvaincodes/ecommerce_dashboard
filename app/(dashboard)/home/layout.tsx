@@ -17,7 +17,7 @@ import prismadb from "@/lib/prismadb";
       userId,
     },
   });
-  if (!store) redirect("/");
+  // if (!store) redirect("/");
 
   return (
     <>
