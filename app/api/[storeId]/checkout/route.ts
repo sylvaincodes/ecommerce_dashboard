@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import { stripe } from "@/lib/stripe";
 import prismadb from "@/lib/prismadb";
+import NextCors from 'nextjs-cors';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -18,6 +19,9 @@ export async function POST(
   req: Request,
   { params }: { params: { storeId: string } }
 ) {
+
+  
+
   const { productIds } = await req.json();
   const { frontendUrl } = await req.json();
 
