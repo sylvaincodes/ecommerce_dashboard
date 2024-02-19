@@ -15,7 +15,7 @@ export async function OPTIONS() {
 }
 
 export async function POST(
-  req: Request, res: NextResponse
+  req: Request, res: NextResponse,
   { params }: { params: { storeId: string } }
 ) {
 
