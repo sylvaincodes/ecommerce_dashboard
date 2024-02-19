@@ -19,10 +19,9 @@ export async function POST(
   { params }: { params: { storeId: string } }
 ) {
 
+    const body = await req.json();
 
-  const { productIds } = await req.json();
-  // const { frontendUrl } = await req.json();
-  const  frontendUrl = "http://localhost:3000";
+    const { productIds, frontendUrl } = body;
 
   if (!productIds || productIds.length === 0) {
     return new NextResponse("Product ids are required", { status: 400 });
