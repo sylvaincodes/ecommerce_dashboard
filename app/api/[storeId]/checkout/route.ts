@@ -15,13 +15,14 @@ export async function OPTIONS() {
 }
 
 export async function POST(
-  req: Request, res: NextResponse,
+  req: Request,
   { params }: { params: { storeId: string } }
 ) {
 
 
   const { productIds } = await req.json();
-  const { frontendUrl } = await req.json();
+  // const { frontendUrl } = await req.json();
+  const  frontendUrl = "http://localhost:3000";
 
   if (!productIds || productIds.length === 0) {
     return new NextResponse("Product ids are required", { status: 400 });
@@ -80,20 +81,8 @@ export async function POST(
     },
   });
 
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
-
-   return new NextResponse(session.url);
-
-
-  return NextResponse.json({ url: session.url }, {
+    console.log(session.url);
+  return NextResponse.json( session.url , {
     headers: corsHeaders
   });
 };
