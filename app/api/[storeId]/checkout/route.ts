@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 import { stripe } from "@/lib/stripe";
 import prismadb from "@/lib/prismadb";
-import NextCors from 'nextjs-cors';
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -20,11 +19,11 @@ export async function POST(
   { params }: { params: { storeId: string } }
 ) {
 
-  
 
   const { productIds } = await req.json();
   const { frontendUrl } = await req.json();
-
+  // const frontendUrl = "http://localhost:3000/cart";
+ // return new NextResponse(frontendUrl);
   if (!productIds || productIds.length === 0) {
     return new NextResponse("Product ids are required", { status: 400 });
   }
@@ -81,6 +80,9 @@ export async function POST(
       orderId: order.id
     },
   });
+
+   return new NextResponse(session.url);
+
 
   return NextResponse.json({ url: session.url }, {
     headers: corsHeaders
