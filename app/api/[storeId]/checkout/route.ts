@@ -15,15 +15,14 @@ export async function OPTIONS() {
 }
 
 export async function POST(
-  req: Request,
+  req: Request, res: NextResponse
   { params }: { params: { storeId: string } }
 ) {
 
 
   const { productIds } = await req.json();
   const { frontendUrl } = await req.json();
-  // const frontendUrl = "http://localhost:3000/cart";
- // return new NextResponse(frontendUrl);
+
   if (!productIds || productIds.length === 0) {
     return new NextResponse("Product ids are required", { status: 400 });
   }
@@ -80,6 +79,16 @@ export async function POST(
       orderId: order.id
     },
   });
+
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  );
 
    return new NextResponse(session.url);
 
