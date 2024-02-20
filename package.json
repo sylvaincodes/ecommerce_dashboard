@@ -32,6 +32,7 @@
     "mongoose": "^8.1.1",
     "next": "14.1.0",
     "next-cloudinary": "^5.20.0",
+    "next-themes": "^0.2.1",
     "nextjs-cors": "^2.2.0",
     "open-url-by-browser": "^1.0.1",
     "prisma": "^5.9.1",
